@@ -11,11 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Document("appointment")
+@Document(AppointmentDomain.APPOINTMENT_COLLECTION)
 @Getter
 @Setter
 @NoArgsConstructor
 public class AppointmentDomain {
+    public static final String APPOINTMENT_COLLECTION = "appointment";
     @Id
     private String id;
     public static final String ID = "id";
