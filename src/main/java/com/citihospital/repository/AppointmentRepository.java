@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class AppointmentRepository {
 
@@ -17,9 +19,10 @@ public class AppointmentRepository {
         return mongoTemplate.save(appointmentDomain);
     }
 
-    public AppointmentDomain findAppointmentById(String id) {
+    public List<AppointmentDomain> findAppointmentById(String key, String id) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("id").is(id));
-        return mongoTemplate.findOne(query, AppointmentDomain.class);
+        query.addCriteria(Criteria.where(key).is(id));
+        return mongoTemplate.find(query, AppointmentDomain.class);
     }
+
 }

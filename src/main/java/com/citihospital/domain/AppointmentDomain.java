@@ -18,8 +18,11 @@ import java.time.LocalTime;
 public class AppointmentDomain {
     @Id
     private String id;
+    public static final String ID = "id";
     private String patientId;
+    public static final String PATIENT_ID = "patientId";
     private String doctorId;
+    public static final String DOCTOR_ID = "doctorId";
     private LocalDate date;
     private LocalTime time;
 
